@@ -1,0 +1,1087 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.iso {
+  background: var(--anatomy-page);
+  color: var(--anatomy-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app-shell {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 20px 24px 64px;
+}
+
+.mono-inline {
+  font-family: var(--anatomy-mono);
+  font-size: 0.82em;
+  color: var(--anatomy-strong);
+  background: var(--anatomy-shade-1);
+  padding: 1px 6px;
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+}
+
+/* Precision Header */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--anatomy-card);
+  box-shadow: 0 0 0 1px var(--anatomy-lo);
+  margin-bottom: 24px;
+  position: sticky;
+  top: 10px;
+  z-index: 60;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-badge {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 10px;
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+}
+
+.brand-meta {
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--anatomy-muted);
+}
+
+.brand h1 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--anatomy-strong);
+  letter-spacing: 0.02em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Study Rhythm Timer */
+.study-timer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 7px 12px;
+}
+
+.timer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-phase {
+  font-family: var(--anatomy-mono);
+  font-size: 9.5px;
+  color: var(--anatomy-muted);
+  letter-spacing: 0.08em;
+}
+
+.timer-display {
+  font-family: var(--anatomy-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--anatomy-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-tab {
+  background: transparent;
+  color: var(--anatomy-muted);
+  border: 1px solid transparent;
+  padding: 7px 11px;
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-tab:hover {
+  color: var(--anatomy-strong);
+  border-color: var(--anatomy-faint);
+}
+
+.nav-tab.active {
+  background: var(--anatomy-shade-2);
+  color: var(--anatomy-strong);
+  border-color: var(--anatomy-mid);
+}
+
+.tab-count {
+  padding: 1px 5px;
+  background: var(--anatomy-faint);
+  color: var(--anatomy-strong);
+  font-size: 10px;
+}
+
+/* Tab Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Hero Bench Layout */
+.hero-bench-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.bench-figure.iso-figure {
+  margin: 0;
+}
+
+.iso-stage {
+  cursor: ew-resize;
+  outline: none;
+  user-select: none;
+}
+
+.iso-stage:focus-visible {
+  box-shadow: 0 0 0 1px var(--anatomy-lit);
+}
+
+/* 16-Week Indexing Strip under the Isometric Rig */
+.rig-week-strip {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 3px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--anatomy-faint);
+}
+
+.rig-week-btn {
+  background: var(--anatomy-shade-1);
+  border: 1px solid var(--anatomy-faint);
+  color: var(--anatomy-muted);
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  padding: 6px 2px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.12s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.rig-week-btn:hover {
+  border-color: var(--anatomy-mid);
+  color: var(--anatomy-strong);
+}
+
+.rig-week-btn.active {
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+  border-color: var(--anatomy-lit);
+  font-weight: 700;
+}
+
+.rig-week-btn .wk-dot {
+  width: 100%;
+  height: 2px;
+  background: var(--anatomy-lo);
+}
+
+.rig-week-btn.has-prog .wk-dot {
+  background: var(--anatomy-green);
+}
+
+.rig-week-btn.active .wk-dot {
+  background: var(--anatomy-page);
+}
+
+/* Anatomy Framed Plate Cards */
+.plate-card {
+  position: relative;
+  background: var(--anatomy-card);
+  box-shadow: 0 0 0 1px var(--anatomy-lo);
+  padding: 40px 22px 22px;
+  margin-bottom: 22px;
+}
+
+.plate-card-corners {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--anatomy-muted);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.bench-telemetry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.telemetry-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--anatomy-strong);
+  margin-bottom: 10px;
+}
+
+.telemetry-meter {
+  height: 5px;
+  background: var(--anatomy-shade-0);
+  box-shadow: inset 0 0 0 1px var(--anatomy-faint);
+  margin-bottom: 10px;
+}
+
+.telemetry-meter-bar {
+  height: 100%;
+  background: var(--anatomy-lit);
+  transition: width 0.25s var(--anatomy-ease);
+}
+
+.telemetry-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mono-tag {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  color: var(--anatomy-strong);
+  letter-spacing: 0.05em;
+}
+
+.telemetry-goal-box {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+. telemetry-goal-box strong,
+.telemetry-goal-box strong {
+  color: var(--anatomy-strong);
+}
+
+.divider-line {
+  height: 1px;
+  background: var(--anatomy-faint);
+  margin: 14px 0;
+}
+
+.mono-label {
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--anatomy-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.telemetry-body-text {
+  font-size: 0.85rem;
+  color: var(--anatomy-text);
+  margin-bottom: 12px;
+}
+
+.next-session-box {
+  background: var(--anatomy-shade-2);
+  box-shadow: 0 0 0 1px var(--anatomy-lo);
+  padding: 10px 12px;
+  font-size: 0.84rem;
+  color: var(--anatomy-strong);
+}
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.kpi-card {
+  background: var(--anatomy-card);
+  box-shadow: 0 0 0 1px var(--anatomy-lo);
+  padding: 14px 16px;
+}
+
+.kpi-label {
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  color: var(--anatomy-muted);
+  letter-spacing: 0.08em;
+}
+
+.kpi-value {
+  font-family: var(--anatomy-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--anatomy-strong);
+  margin: 4px 0 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-sub {
+  font-size: 0.78rem;
+  color: var(--anatomy-muted);
+}
+
+/* Card Headers & Layouts */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.plate-card h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--anatomy-strong);
+}
+
+.muted {
+  color: var(--anatomy-muted);
+  font-size: 0.84rem;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 22px;
+}
+
+@media (max-width: 1024px) {
+  .hero-bench-grid,
+  .two-col-grid,
+  .profile-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .rig-week-strip {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Career Journey Map */
+.career-journey {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.journey-node {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 16px;
+  transition: box-shadow 0.15s ease;
+}
+
+.journey-node.active-goal {
+  background: var(--anatomy-shade-2);
+  box-shadow: 0 0 0 1px var(--anatomy-lit);
+}
+
+.journey-period {
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  color: var(--anatomy-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.journey-node.active-goal .journey-period {
+  color: var(--anatomy-lit);
+}
+
+.journey-role {
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: var(--anatomy-strong);
+  margin-bottom: 2px;
+}
+
+.journey-company {
+  font-size: 0.82rem;
+  color: var(--anatomy-muted);
+  margin-bottom: 10px;
+}
+
+.journey-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  background: var(--anatomy-card);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 2px 7px;
+  color: var(--anatomy-text);
+}
+
+/* Roadmap Mini List */
+.roadmap-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roadmap-row {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.roadmap-row:hover,
+.roadmap-row.selected-row {
+  box-shadow: 0 0 0 1px var(--anatomy-hi);
+  background: var(--anatomy-shade-2);
+}
+
+.roadmap-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.roadmap-week-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--anatomy-strong);
+}
+
+.roadmap-pct {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  padding: 1px 7px;
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+}
+
+.pct-100 {
+  color: var(--anatomy-green);
+  box-shadow: 0 0 0 1px var(--anatomy-green);
+}
+
+.pct-active {
+  color: var(--anatomy-lit);
+  box-shadow: 0 0 0 1px var(--anatomy-mid);
+}
+
+.pct-0 {
+  color: var(--anatomy-muted);
+}
+
+.progress-track {
+  height: 4px;
+  background: var(--anatomy-shade-0);
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--anatomy-hi);
+  transition: width 0.3s var(--anatomy-ease);
+}
+
+.progress-fill.done {
+  background: var(--anatomy-green);
+}
+
+.roadmap-status-note {
+  font-size: 0.78rem;
+  color: var(--anatomy-muted);
+}
+
+/* Checklists */
+.checklist-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 11px;
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--anatomy-text);
+  transition: box-shadow 0.12s ease;
+}
+
+.check-item:hover {
+  box-shadow: 0 0 0 1px var(--anatomy-mid);
+}
+
+.check-item.checked {
+  background: var(--anatomy-shade-0);
+}
+
+.check-item.checked .check-text {
+  color: var(--anatomy-muted);
+  text-decoration: line-through;
+}
+
+.check-item input[type="checkbox"] {
+  margin-top: 3px;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--anatomy-lit);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.line-badge {
+  margin-left: auto;
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  color: var(--anatomy-muted);
+  flex-shrink: 0;
+}
+
+/* Rhythm Grid */
+.rhythm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+}
+
+.rhythm-item {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 10px 12px;
+}
+
+.rhythm-day {
+  font-weight: 600;
+  font-size: 0.84rem;
+  color: var(--anatomy-strong);
+  display: flex;
+  justify-content: space-between;
+}
+
+.rhythm-time {
+  font-family: var(--anatomy-mono);
+  color: var(--anatomy-muted);
+  font-size: 11px;
+}
+
+.rhythm-purpose {
+  font-size: 0.78rem;
+  color: var(--anatomy-muted);
+  margin-top: 4px;
+}
+
+/* Toolbar & Filters */
+.toolbar-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-btn {
+  background: var(--anatomy-card);
+  color: var(--anatomy-muted);
+  border: 1px solid var(--anatomy-lo);
+  padding: 7px 12px;
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+  border-color: var(--anatomy-lit);
+  font-weight: 700;
+}
+
+.search-box input,
+.header-controls input,
+.select-input {
+  background: var(--anatomy-card);
+  color: var(--anatomy-strong);
+  border: 1px solid var(--anatomy-lo);
+  padding: 8px 12px;
+  font-family: var(--anatomy-mono);
+  font-size: 12px;
+  min-width: 260px;
+}
+
+/* Weeks Detailed Cards */
+.weeks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 700px) {
+  .weeks-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.week-card {
+  background: var(--anatomy-card);
+  box-shadow: 0 0 0 1px var(--anatomy-lo);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.week-card.week-active {
+  box-shadow: 0 0 0 1px var(--anatomy-lit);
+}
+
+.week-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.week-num-badge {
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  color: var(--anatomy-muted);
+  letter-spacing: 0.08em;
+}
+
+.week-card h3 {
+  color: var(--anatomy-strong);
+  font-size: 1.02rem;
+}
+
+.week-goals {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 11px 12px;
+  font-size: 0.84rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.week-goals strong {
+  color: var(--anatomy-strong);
+}
+
+.week-progress-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  color: var(--anatomy-muted);
+}
+
+.week-progress-control input[type="range"] {
+  flex: 1;
+  accent-color: var(--anatomy-lit);
+}
+
+.week-notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .week-notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.note-box {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 10px 12px;
+  font-size: 0.8rem;
+}
+
+.note-box h5 {
+  font-family: var(--anatomy-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  color: var(--anatomy-strong);
+}
+
+.note-box ul {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+details.daily-details {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 8px 12px;
+}
+
+details.daily-details summary {
+  cursor: pointer;
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  color: var(--anatomy-muted);
+}
+
+/* Session Table */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.session-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.session-table th,
+.session-table td {
+  padding: 11px 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--anatomy-faint);
+  vertical-align: top;
+}
+
+.session-table th {
+  background: var(--anatomy-shade-1);
+  color: var(--anatomy-muted);
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+}
+
+.session-table td strong {
+  font-family: var(--anatomy-mono);
+  font-size: 11.5px;
+  color: var(--anatomy-strong);
+}
+
+/* Buttons & Forms */
+.btn {
+  border: 1px solid var(--anatomy-lo);
+  background: var(--anatomy-shade-2);
+  color: var(--anatomy-strong);
+  padding: 7px 13px;
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-sm {
+  padding: 5px 9px;
+  font-size: 10px;
+}
+
+.btn-lit {
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+  border-color: var(--anatomy-lit);
+  font-weight: 700;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--anatomy-text);
+  border-color: var(--anatomy-lo);
+}
+
+.btn-ghost:hover {
+  border-color: var(--anatomy-hi);
+  color: var(--anatomy-strong);
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.add-session-form {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-mid);
+  padding: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field label {
+  font-family: var(--anatomy-mono);
+  font-size: 10.5px;
+  color: var(--anatomy-muted);
+}
+
+.form-field input {
+  background: var(--anatomy-card);
+  border: 1px solid var(--anatomy-lo);
+  color: var(--anatomy-strong);
+  padding: 8px 11px;
+  font-size: 0.85rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Profile Layout */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 22px;
+}
+
+.avatar-circle {
+  width: 56px;
+  height: 56px;
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+  font-family: var(--anatomy-mono);
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.contact-list,
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+}
+
+.contact-item {
+  padding: 8px 10px;
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  word-break: break-word;
+}
+
+.contact-item a {
+  color: var(--anatomy-strong);
+  text-decoration: underline;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.skill-group-card {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  padding: 14px;
+}
+
+.skill-group-title {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--anatomy-strong);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.exp-card {
+  background: var(--anatomy-shade-1);
+  box-shadow: 0 0 0 1px var(--anatomy-faint);
+  border-left: 2px solid var(--anatomy-lit);
+  padding: 16px 18px;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.exp-company {
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: var(--anatomy-strong);
+}
+
+.exp-role {
+  font-family: var(--anatomy-mono);
+  color: var(--anatomy-text);
+  font-size: 11.5px;
+}
+
+.exp-period {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  color: var(--anatomy-muted);
+}
+
+.exp-list {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: var(--anatomy-text);
+}
+
+/* Markdown Editor */
+.markdown-textarea {
+  width: 100%;
+  min-height: 620px;
+  background: var(--anatomy-shade-0);
+  color: var(--anatomy-strong);
+  border: 1px solid var(--anatomy-lo);
+  padding: 16px;
+  font-family: var(--anatomy-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.sub-heading {
+  font-family: var(--anatomy-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--anatomy-strong);
+  margin-bottom: 8px;
+}
+
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+
+.toast {
+  background: var(--anatomy-lit);
+  color: var(--anatomy-page);
+  font-family: var(--anatomy-mono);
+  font-size: 11.5px;
+  padding: 10px 14px;
+  box-shadow: 0 0 0 1px var(--anatomy-mid);
+}

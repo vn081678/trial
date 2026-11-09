@@ -1,0 +1,10 @@
+{
+  "name": "career-aws-tracker",
+  "version": "1.0.0",
+  "description": "Career Path & AWS Certified Developer Associate (DVA-C02) Study Tracker synced with Markdown files",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
+

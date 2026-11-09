@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vo Quang Trung — Career & AWS DVA-C02 Instrument</title>
+  <link rel="stylesheet" href="/iso.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="iso" data-theme="dark">
+  <div class="app-shell">
+    <!-- Top Precision Header -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge">SYS // DVA-C02</div>
+        <div>
+          <div class="brand-meta">INSTRUMENTSPEC &middot; CAREER &amp; STUDY TELEMETRY</div>
+          <h1 id="header-name">VO QUANG TRUNG</h1>
+        </div>
+      </div>
+
+      <!-- 45-min Study Rhythm Timer -->
+      <div class="study-timer" id="study-timer">
+        <div class="timer-info">
+          <span class="timer-phase" id="timer-phase">45M STUDY RHYTHM</span>
+          <span class="timer-display" id="timer-display">45:00</span>
+        </div>
+        <div class="timer-actions">
+          <button class="btn btn-sm btn-lit" id="timer-start-btn" title="5m recall + 15m explain + 15m apply + 10m summary">START</button>
+          <button class="btn btn-sm btn-ghost" id="timer-reset-btn">RESET</button>
+        </div>
+      </div>
+
+      <!-- Navigation & Theme Switch -->
+      <div class="topbar-right">
+        <nav class="nav-tabs" role="tablist">
+          <button class="nav-tab active" data-tab="overview">01 // BENCH &amp; OVERVIEW</button>
+          <button class="nav-tab" data-tab="roadmap">02 // 16-WEEK MODULES</button>
+          <button class="nav-tab" data-tab="sessions">03 // SESSION LOG <span class="tab-count" id="session-count-badge">0</span></button>
+          <button class="nav-tab" data-tab="profile">04 // CAREER DOSSIER</button>
+          <button class="nav-tab" data-tab="editor">05 // .MD SOURCE</button>
+        </nav>
+        <button class="btn btn-sm btn-ghost theme-toggle-btn" id="theme-toggle-btn" title="Toggle Dark / Light Paper Theme">
+          PAPER / DARK
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- TAB 1: BENCH & OVERVIEW -->
+      <section class="tab-panel active" id="tab-overview">
+        <!-- Anatomy Isometric Figure Plate + Live Telemetry Side Panel -->
+        <div class="hero-bench-grid">
+          <figure class="iso-figure bench-figure">
+            <div class="iso-plate" id="rig-plate">
+              <div class="iso-plate-corners">
+                <span class="iso-plate-corner" data-corner="fig">Fig 1 &middot; DVA-C02</span>
+                <span class="iso-plate-corner" data-corner="title">16-WEEK INDEXING GAUGE RIG</span>
+                <span class="iso-plate-corner" data-corner="hint">Hover, click week stop, or use &larr; &rarr; keys</span>
+                <span class="iso-plate-corner" data-corner="readout" data-readout id="rig-readout">W06 &middot; 20.0%</span>
+              </div>
+              <div
+                class="iso-stage"
+                id="rig-stage"
+                tabindex="0"
+                role="slider"
+                aria-label="AWS DVA-C02 16-week indexing gauge rig"
+                aria-valuemin="1"
+                aria-valuemax="16"
+                aria-valuenow="6"
+              >
+                <!-- Isometric SVG injected by rig-figure.mjs -->
+              </div>
+              <!-- 16-Week Indexing Stop Strip inside plate -->
+              <div class="rig-week-strip" id="rig-week-strip" aria-label="Select week stop"></div>
+            </div>
+            <figcaption class="iso-legend">
+              <div class="iso-keys">
+                <span class="iso-key">
+                  <svg class="iso-swatch" data-mark="lit" viewBox="0 0 16 10"><path d="M1 5L15 5"/></svg>
+                  Plunger &amp; dial needle: measures topic coverage (0–100%) of the week block under the spindle
+                </span>
+                <span class="iso-key">
+                  <svg class="iso-swatch" data-mark="raised" viewBox="0 0 16 10"><path d="M2 8L8 2L14 8"/></svg>
+                  16 gauge blocks on sliding carriage (W01–W16) + 4 career datum blocks on rear deck (ADAS &rarr; IoT &rarr; SaaS &rarr; AWS)
+                </span>
+              </div>
+              <div>
+                Every block's physical height is driven directly by <code class="mono-inline">AWS-study-checklist.md</code>. Slide the carriage or toggle checkboxes below and the gauge needle recalibrates in real time.
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Right Column: Active Week Inspector & Current Position Telemetry -->
+          <div class="bench-telemetry-col">
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 1.1 // ACTIVE POSITION</span>
+                <span id="overall-pct-corner">OVERALL: 32%</span>
+              </div>
+              <h2 class="telemetry-title" id="inspected-week-heading">Week 6 — DynamoDB and data patterns</h2>
+              <div class="telemetry-meter">
+                <div class="telemetry-meter-bar" id="inspected-week-bar" style="width: 20%"></div>
+              </div>
+              <div class="telemetry-meta-row">
+                <span class="mono-tag" id="inspected-week-status">20% TOPIC COVERAGE</span>
+                <button class="btn btn-sm btn-ghost" id="jump-to-inspected-week-btn">OPEN WEEK CHECKLIST &rarr;</button>
+              </div>
+              <div class="telemetry-goal-box">
+                <div><strong>Learning goal:</strong> <span id="inspected-learning-goal"></span></div>
+                <div><strong>Practice goal:</strong> <span id="inspected-practice-goal"></span></div>
+              </div>
+              <div class="divider-line"></div>
+              <div class="mono-label">CURRENT POSITION (<code class="mono-inline">AWS-study-checklist.md</code>)</div>
+              <p class="telemetry-body-text" id="current-position-text">Loading...</p>
+              <div class="next-session-box">
+                <span class="mono-label">NEXT SESSION OBJECTIVE</span>
+                <div id="next-session-text">Loading...</div>
+              </div>
+            </div>
+
+            <!-- 4 KPI Readout Cells -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <span class="kpi-label">OVERALL COVERAGE</span>
+                <div class="kpi-value" id="overall-progress-val">32%</div>
+                <span class="kpi-sub" id="banner-plan">16 flexible weeks</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">MODULES 100%</span>
+                <div class="kpi-value" id="kpi-weeks">3 / 16</div>
+                <span class="kpi-sub" id="kpi-weeks-sub">W1, W2, W4 complete</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">CHECKLIST ITEMS</span>
+                <div class="kpi-value" id="kpi-tasks">0 / 0</div>
+                <span class="kpi-sub">Synced with .md lines</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">SESSIONS LOGGED</span>
+                <div class="kpi-value" id="kpi-sessions">48</div>
+                <span class="kpi-sub">QA + Cloud Career Track</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Path Progression Map -->
+        <div class="plate-card">
+          <div class="plate-card-corners">
+            <span>SEC 1.2 // CAREER TRAJECTORY</span>
+            <span>2016 &rarr; 2026+ (9+ YEARS QA &amp; CLOUD)</span>
+          </div>
+          <div class="card-header">
+            <div>
+              <h3>Career Path Architecture</h3>
+              <p class="muted">Four engineering stations from Embedded ADAS to AWS Cloud-Native Quality &amp; Development</p>
+            </div>
+          </div>
+          <div class="career-journey" id="career-journey-steps"></div>
+        </div>
+
+        <!-- Two-Column: 16-Week Roadmap Index + Progress Already Made / Weekly Rhythm -->
+        <div class="two-col-grid">
+          <div class="plate-card">
+            <div class="plate-card-corners">
+              <span>SEC 1.3 // CURRICULUM MATRIX</span>
+              <span>16 WEEKS &middot; CLICK TO INSPECT</span>
+            </div>
+            <div class="card-header">
+              <div>
+                <h3>16-Week AWS DVA-C02 Roadmap</h3>
+                <p class="muted">Click any week to position the Isometric Gauge Rig or open its checklist</p>
+              </div>
+            </div>
+            <div class="roadmap-mini-list" id="overview-roadmap-list"></div>
+          </div>
+
+          <div class="stack-col">
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 1.4 // VERIFIED MILESTONES</span>
+                <span>LIVE .MD WRITEBACK</span>
+              </div>
+              <div class="card-header">
+                <div>
+                  <h3>Progress Already Made</h3>
+                  <p class="muted">Click any checkbox to toggle <code class="mono-inline">- [ ]</code> / <code class="mono-inline">- [x]</code> in <code class="mono-inline">AWS-study-checklist.md</code></p>
+                </div>
+              </div>
+              <div class="checklist-group" id="progress-already-made-list"></div>
+            </div>
+
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 1.5 // CADENCE</span>
+                <span>45 MIN / DAY</span>
+              </div>
+              <div class="card-header">
+                <div>
+                  <h3>Weekly Study Rhythm</h3>
+                  <p class="muted">5m recall + 15m explanation + 15m application + 10m summary = 45m</p>
+                </div>
+              </div>
+              <div class="rhythm-grid" id="weekly-rhythm-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: 16-WEEK AWS STUDY CHECKLIST -->
+      <section class="tab-panel" id="tab-roadmap">
+        <div class="toolbar-bar">
+          <div class="filter-pills" id="week-filter-pills">
+            <button class="filter-btn active" data-filter="all">ALL 16 WEEKS</button>
+            <button class="filter-btn" data-filter="in-progress">ACTIVE / IN PROGRESS</button>
+            <button class="filter-btn" data-filter="completed">COMPLETED (100%)</button>
+            <button class="filter-btn" data-filter="not-started">UPCOMING (0%)</button>
+          </div>
+          <div class="search-box">
+            <input type="search" id="week-search-input" placeholder="Filter modules (DynamoDB, Lambda, IAM, GSI)..." />
+          </div>
+        </div>
+
+        <div class="weeks-container" id="weeks-container"></div>
+
+        <div class="two-col-grid mt-24">
+          <div class="plate-card">
+            <div class="plate-card-corners">
+              <span>SEC 2.1 // EXAM READINESS</span>
+              <span>BENCHMARK: 80–85%</span>
+            </div>
+            <div class="card-header">
+              <div>
+                <h3>Readiness Checklist — No Rush to Book</h3>
+                <p class="muted">Complete before scheduling the official DVA-C02 exam</p>
+              </div>
+            </div>
+            <div class="checklist-group" id="readiness-checklist-list"></div>
+          </div>
+
+          <div class="plate-card">
+            <div class="plate-card-corners">
+              <span>SEC 2.2 // PROTOCOL</span>
+              <span>END-OF-LESSON &amp; AUDIT</span>
+            </div>
+            <div class="card-header">
+              <div>
+                <h3>Reusable End-of-Lesson Summary &amp; Process Review</h3>
+                <p class="muted">Daily stopping points and curriculum review</p>
+              </div>
+            </div>
+            <h4 class="sub-heading">End-of-Lesson Checkpoints</h4>
+            <div class="checklist-group" id="reusable-summary-list"></div>
+            <h4 class="sub-heading mt-16">Process Review (2026-09-08)</h4>
+            <div class="checklist-group" id="process-review-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: SESSION LOG -->
+      <section class="tab-panel" id="tab-sessions">
+        <div class="plate-card">
+          <div class="plate-card-corners">
+            <span>SEC 3.1 // TELEMETRY LOG</span>
+            <span>AWS-STUDY-CHECKLIST.MD</span>
+          </div>
+          <div class="card-header">
+            <div>
+              <h3>Recorded Study Sessions</h3>
+              <p class="muted">Complete chronological log of concepts covered, items to revisit, and next steps</p>
+            </div>
+            <div class="header-controls">
+              <input type="search" id="session-search-input" placeholder="Search sessions (e.g. GSI, pagination, IAM)..." />
+              <button class="btn btn-lit" id="open-add-session-btn">+ LOG NEW SESSION</button>
+            </div>
+          </div>
+
+          <form class="add-session-form hidden" id="add-session-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label>Session # &amp; Date</label>
+                <input type="text" id="sess-id" placeholder="e.g. 48 - 2026-11-09" required />
+              </div>
+              <div class="form-field">
+                <label>Topic</label>
+                <input type="text" id="sess-topic" placeholder="e.g. GSI versus LSI comparison" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>What I learned</label>
+                <input type="text" id="sess-learned" placeholder="Key takeaways from today's session..." required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Revisit / Uncertainties</label>
+                <input type="text" id="sess-revisit" placeholder="Topics to recheck next time..." required />
+              </div>
+              <div class="form-field">
+                <label>Next action</label>
+                <input type="text" id="sess-next" placeholder="What to study in the next session..." required />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-lit">WRITE TO AWS-STUDY-CHECKLIST.MD</button>
+              <button type="button" class="btn btn-ghost" id="cancel-add-session-btn">CANCEL</button>
+            </div>
+          </form>
+
+          <div class="table-responsive">
+            <table class="session-table">
+              <thead>
+                <tr>
+                  <th>SESSION</th>
+                  <th>TOPIC</th>
+                  <th>WHAT I LEARNED</th>
+                  <th>REVISIT</th>
+                  <th>NEXT ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="session-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: CV / CAREER PROFILE -->
+      <section class="tab-panel" id="tab-profile">
+        <div class="profile-layout">
+          <aside class="profile-sidebar">
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>DOSSIER // ID</span>
+                <span>HCMC, VN</span>
+              </div>
+              <div class="avatar-circle">VQT</div>
+              <h2 id="cv-name">VO QUANG TRUNG</h2>
+              <p class="muted" id="cv-role">Senior QA / Quality Engineer</p>
+              <div class="contact-list" id="cv-contacts"></div>
+            </div>
+
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>CREDENTIALS</span>
+                <span>VERIFIED + ACTIVE</span>
+              </div>
+              <h3>Certifications</h3>
+              <div class="cert-list" id="cv-certs"></div>
+            </div>
+
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>ACADEMIC</span>
+                <span>2015</span>
+              </div>
+              <h3>Education</h3>
+              <div id="cv-education"></div>
+            </div>
+          </aside>
+
+          <div class="profile-main">
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 4.1 // EXECUTIVE BRIEF</span>
+                <span>VOQUANGTRUNG_QA.MD</span>
+              </div>
+              <h3>Professional Summary</h3>
+              <p class="summary-paragraph" id="cv-summary"></p>
+            </div>
+
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 4.2 // CAPABILITY MATRIX</span>
+                <span>QA + CLOUD STACK</span>
+              </div>
+              <h3>Technical Skills &amp; AWS Cloud Expansion</h3>
+              <div class="skills-grid" id="cv-skills"></div>
+            </div>
+
+            <div class="plate-card">
+              <div class="plate-card-corners">
+                <span>SEC 4.3 // SERVICE RECORD</span>
+                <span>2016 &mdash; PRESENT</span>
+              </div>
+              <h3>Work Experience Timeline</h3>
+              <div class="experience-timeline" id="cv-experience"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: MARKDOWN LIVE EDITOR -->
+      <section class="tab-panel" id="tab-editor">
+        <div class="plate-card">
+          <div class="plate-card-corners">
+            <span>SEC 5.1 // DIRECT SOURCE I/O</span>
+            <span>UTF-8 MARKDOWN</span>
+          </div>
+          <div class="card-header">
+            <div>
+              <h3>Markdown Source Sync</h3>
+              <p class="muted">Direct read/write access to <code class="mono-inline">AWS-study-checklist.md</code> and <code class="mono-inline">VoQuangTrung_QA.md</code></p>
+            </div>
+            <div class="header-controls">
+              <select id="editor-file-select" class="select-input">
+                <option value="aws">AWS-study-checklist.md</option>
+                <option value="career">VoQuangTrung_QA.md</option>
+              </select>
+              <button class="btn btn-lit" id="save-markdown-btn">SAVE FILE (.MD)</button>
+            </div>
+          </div>
+          <textarea id="markdown-editor-textarea" class="markdown-textarea" spellcheck="false"></textarea>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
